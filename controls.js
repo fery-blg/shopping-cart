@@ -9,7 +9,7 @@ var obj1 = {
   dicrimint1: dicrimint1,
   pt1:pt1
 };
-
+//quantity
 function incrimant1() {
   this.quantity++;
 }
@@ -94,8 +94,8 @@ document.getElementById("minus-3").addEventListener("click", function () {
 
 var obj4 = {
   name: "MacBook Pro" ,
-  quantity : 1 ,
-  prixuni: 1799 ,
+  quantity4: 1 ,
+  prixuni4: 1799 ,
   prixtotal4: function() {
     return this.prixuni4 * this.quantity4 ;},
   incrimant4:incrimant4,
@@ -121,7 +121,7 @@ document.getElementById("minus-4").addEventListener("click", function () {
 
   console.log(q4); // console
 });
-
+//calculate the total price 
 function pt1() {
   var pt = obj1.prixtotal() + obj2.prixtotal1() + obj3.prixtotal3() + obj4.prixtotal4();
   document.getElementById("pt").innerText ;}
