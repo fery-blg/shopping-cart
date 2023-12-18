@@ -2,7 +2,8 @@ var obj1 = {
   name: "Iphone 11 pro",
   quantity: 1,
   prixuni: 900,
-  prixtotal: this.prixuni * this.quantity,
+   prixtotal: function() {
+    return this.prixuni * this.quantity;},
 
   incrimant1: incrimant1,
   dicrimint1: dicrimint1,
@@ -32,7 +33,8 @@ var obj2 = {
   name: "Samsung galaxy Note 10" ,
   quantity1 : 1 ,
   prixuni1: 900 ,
-  prixtotal1 : this.prixuni1 * this.quantity1 , 
+  prixtotal2: function() {
+    return this.prixuni2 * this.quantity2;}, 
   incrimant2:incrimant2,
   dicrimint2:dicrimint2,
   pt1:pt1
@@ -62,10 +64,11 @@ var obj3 = {
   name: "Canon EOS M50 " ,
   quantity3 : 1 ,
   prixuni3: 1199 ,
-  prixtotal3 : this.prixuni3 * this.quantity3 , 
+   prixtotal3: function() {
+    return this.prixuni3 * this.quantity3;}, 
   incrimant3:incrimant3,
   dicrimint3:dicrimint3,
-  pt1:pt1,
+  
 
 }
 function incrimant3() {
@@ -91,12 +94,13 @@ document.getElementById("minus-3").addEventListener("click", function () {
 
 var obj4 = {
   name: "MacBook Pro" ,
-  quantity4 : 1 ,
-  prixuni4: 1799 ,
-  prixtotal4 : this.prixuni4 * this.quantity4 , 
+  quantity : 1 ,
+  prixuni: 1799 ,
+  prixtotal4: function() {
+    return this.prixuni4 * this.quantity4 ;},
   incrimant4:incrimant4,
   dicrimint4:dicrimint4,
-  pt1:pt1
+  
 
 }
 function incrimant4() {
@@ -118,8 +122,6 @@ document.getElementById("minus-4").addEventListener("click", function () {
   console.log(q4); // console
 });
 
-function pt1(){
-  document.getElementById("pt").innerText = "pt1"
-  pt=prixtotal+prixtotal1+prixtotal4+prixtotal3
-
-}
+function pt1() {
+  var pt = obj1.prixtotal() + obj2.prixtotal1() + obj3.prixtotal3() + obj4.prixtotal4();
+  document.getElementById("pt").innerText ;}
