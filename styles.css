@@ -3,3 +3,57 @@
     height: 100vh !important;
     }
     }
+    .box-btn {
+        float: left;
+        background: transparent;
+        font-size: 53px;
+        color: #4D4E56;
+        font-weight: 300;
+        cursor: pointer;
+        border-radius: 2px;
+        line-height: 0.5;
+        border: none;
+        outline: none;
+      }
+      .glyphicon {
+        transition: color .3s linear;
+      }  
+      .box-btn .red {
+        color: red;
+      }
+      
+      
+      #remove {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        border: 2px solid rgb(231, 50, 50);
+        background-color: #fff;
+        cursor: pointer;
+        box-shadow: 0 0 10px #333;
+
+    }
+    #remove:hover {
+      background-color: rgb(245, 207, 207);
+      transform: scale(1.2);
+      box-shadow: 0 0 4px #111;
+      transition: .3s;
+  }
+  svg {
+    color: rgb(231, 50, 50);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+}
+
+#heart {
+  color: grey;  
+  font-size: 50px;
+}
+
+#heart.red {
+  color: red;
+}

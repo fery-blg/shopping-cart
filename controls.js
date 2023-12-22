@@ -1,127 +1,84 @@
-var obj1 = {
-  name: "Iphone 11 pro",
-  quantity: 1,
-  prixuni: 900,
-   prixtotal: function() {
-    return this.prixuni * this.quantity;},
+let item_list = [];
 
-  incrimant1: incrimant1,
-  dicrimint1: dicrimint1,
-  pt1:pt1
-};
-//quantity
-function incrimant1() {
-  this.quantity++;
-}
-function dicrimint1() {
-  this.quantity--;
+function inc() {
+  this.count += 1;
+  this.total = this.count * this.price;
 }
 
-document.getElementById("plus-1").addEventListener("click", function () {
-  obj1.incrimant1();
-  document.getElementById("q1").innerText = obj1.quantity;
+function dec() {
+  if (this.count === 0) alert("negative quatity are not allowed ");
+  else {
+    this.count -= 1;
 
-  console.log(q1); // console
-});
-document.getElementById("minus-1").addEventListener("click", function () {
-  obj1.dicrimint1();
-  document.getElementById("q1").innerText = obj1.quantity;
-
-  console.log(q1); // console
-});
-var obj2 = {
-  name: "Samsung galaxy Note 10" ,
-  quantity1 : 1 ,
-  prixuni1: 900 ,
-  prixtotal2: function() {
-    return this.prixuni2 * this.quantity2;}, 
-  incrimant2:incrimant2,
-  dicrimint2:dicrimint2,
-  pt1:pt1
-
+    this.total = this.count * this.price;
+  }
 }
-function incrimant2() {
-  this.quantity1++;
+
+function createProduct(price) {
+  const product = {
+    count: 0,
+    price: price,
+    total: 0,
+    increment: inc,
+    decrement: dec,
+  };
+  item_list.push(product);
+  return product;
 }
-function dicrimint2() {
-  this.quantity1--;
+const product_1 = createProduct(900);
+
+const product_2 = createProduct(900);
+
+function render() {
+  document.getElementById("q1").innerHTML = product_1.count;
+  document.getElementById("p1").innerHTML = product_1.price;
+  document.getElementById("t1").innerHTML = product_1.total;
+  document.getElementById("q2").innerHTML = product_2.count;
+  document.getElementById("p2").innerHTML = product_2.price;
+  document.getElementById("t2").innerHTML = product_2.total;
 }
-document.getElementById("plus-2").addEventListener("click", function () {
-  obj2.incrimant2();
-  document.getElementById("q2").innerText = obj2.quantity1;
 
-  console.log(q2); // console
-});
-document.getElementById("minus-2").addEventListener("click", function () {
-  obj2.dicrimint2();
-  document.getElementById("q2").innerText = obj2.quantity1;
-
-  console.log(q2); // console
-});
-
-
-var obj3 = {
-  name: "Canon EOS M50 " ,
-  quantity3 : 1 ,
-  prixuni3: 1199 ,
-   prixtotal3: function() {
-    return this.prixuni3 * this.quantity3;}, 
-  incrimant3:incrimant3,
-  dicrimint3:dicrimint3,
-  
-
+function increment(n) {
+  if (n === 1) {
+    product_1.increment();
+    let q1 = document.getElementById("q1");
+    q1.textContent = product_1.count;
+    let t1 = document.getElementById("t1");
+    t1.textContent = product_1.total;
+  } else if (n === 2) {
+    product_2.increment();
+    let q2 = document.getElementById("q2");
+    q2.textContent = product_2.count;
+    let t2 = document.getElementById("t2");
+    t2.textContent = product_2.total;
+  }
 }
-function incrimant3() {
-  this.quantity3++;
+
+function decrement(n) {
+  if (n === 1) {
+    product_1.decrement();
+    let q1 = document.getElementById("q1");
+    q1.textContent = product_1.count;
+    let t1 = document.getElementById("t1");
+    t1.textContent = product_1.total;
+  } else if (n === 2) {
+    product_2.decrement();
+    let q2 = document.getElementById("q2");
+    q2.textContent = product_2.count;
+    let t2 = document.getElementById("t2");
+    t2.textContent = product_2.total;
+  }
 }
-function dicrimint3() {
-  this.quantity3--;
+
+function remove(n) {
+  const item = document.getElementById(n);
+  item.remove();
 }
-document.getElementById("plus-3").addEventListener("click", function () {
-  obj3.incrimant3();
-  document.getElementById("q3").innerText = obj3.quantity3;
 
-  console.log(q3); // console
-});
-document.getElementById("minus-3").addEventListener("click", function () {
-  obj3.dicrimint3();
-  document.getElementById("q3").innerText = obj3.quantity3;
-
-  console.log(q3); // console
-});
-
-
-
-var obj4 = {
-  name: "MacBook Pro" ,
-  quantity4: 1 ,
-  prixuni4: 1799 ,
-  prixtotal4: function() {
-    return this.prixuni4 * this.quantity4 ;},
-  incrimant4:incrimant4,
-  dicrimint4:dicrimint4,
-  
-
+function checkout() {
+  let sum = 0;
+  for (let i = 0; i < item_list.length; i++) {
+    sum += item_list[i]["total"];
+  }
+  document.getElementById("total").innerHTML = sum;
 }
-function incrimant4() {
-  this.quantity4++;
-}
-function dicrimint4() {
-  this.quantity4--;
-}
-document.getElementById("plus-4").addEventListener("click", function () {
-  obj4.incrimant4();
-  document.getElementById("q4").innerText = obj4.quantity4;
-
-  console.log(q4); // console
-});
-document.getElementById("minus-4").addEventListener("click", function () {
-  obj4.dicrimint4();
-  document.getElementById("q4").innerText = obj4.quantity4;
-
-  console.log(q4); // console
-});
-//calculate the total price 
-function pt1() {
-  var pt = obj1.prixtotal() + obj2.prixtotal1() + obj3.prixtotal3() + obj4.prixtotal4();
-  document.getElementById("pt").innerText ;}
